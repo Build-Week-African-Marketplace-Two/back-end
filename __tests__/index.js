@@ -17,6 +17,7 @@ describe('integration tests', () => {
     const res = await supertest(server).get('/api/items');
     expect(res.statusCode).toBe(200);
     expect(res.type).toBe('application/json');
-    // expect(res.body).
+    expect(res.body.length).toBeGreaterThanOrEqual(3);
+    expect(res.body[0].name).toBe('bowl');
   });
 });

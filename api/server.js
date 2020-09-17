@@ -6,6 +6,7 @@ const cookieparser = require('cookie-parser');
 const server = express();
 
 const itemsRouter = require('../routes/items-router.js');
+// const server = require('../index.js');
 
 server.use(helmet());
 server.use(cors());
@@ -14,4 +15,7 @@ server.use(cookieparser());
 
 server.use('/api/items', itemsRouter);
 
+server.get('/', (req, res) => {
+  res.json({ message: "it's alive!" });
+});
 module.exports = server;
