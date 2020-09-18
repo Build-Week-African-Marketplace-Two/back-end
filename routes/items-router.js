@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
 
 //Getting a specific item
 
-router.get(':id', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
     const item = await db.findById(req.params.id);
     if (!item) {

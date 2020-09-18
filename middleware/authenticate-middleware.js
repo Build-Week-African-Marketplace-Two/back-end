@@ -7,7 +7,7 @@ function auth() {
     };
 
     try {
-      const token = req.cookies.token;
+      const token = req.cookies.token || req.body.token;
 
       if (!token) {
         return res.status(401).json(authError);

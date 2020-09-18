@@ -18,7 +18,7 @@ server.use(cookieparser());
 
 server.use('/api/auth', authRouter);
 server.use('/api/items', itemsRouter);
-server.use('/api/users', auth, usersRouter);
+server.use('/api/users', auth(), usersRouter);
 
 server.get('/', (req, res) => {
   res.json({ message: "it's alive!" });
