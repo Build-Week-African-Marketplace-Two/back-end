@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=testing jest --verbose --watchAll",
-    "server": "NODE_ENV=development nodemon index.js"
+    "server": "cross-env NODE_ENV=development nodemon index.js",
+    "start": "NODE_ENV=production nodemon index.js",
+    "test-seed": "cross-env NODE_ENV=testing knex seed:run",
+    "test-migrate-latest": "cross-env NODE_ENV=testing knex migrate:latest",
+    "production-migrate-latest": "cross-env NODE_ENV=production knex migrate:latest",
+    "production-seed": "cross-env NODE_ENV=production knex seed:run"
   },
   "repository": {
     "type": "git",
@@ -22,13 +27,13 @@
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
-    "crossenv": "0.0.2-security",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.1.1",
     "jest": "^26.4.2",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.5",
+    "nodemon": "^2.0.4",
     "pg": "^8.3.3",
     "sqlite3": "^5.0.0",
     "supertest": "^4.0.2"

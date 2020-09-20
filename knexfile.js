@@ -37,14 +37,14 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: {
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      port: process.env.DB_PORT,
-      database: process.env.DB_NAME,
-      password: process.env.DB_PASSWORD,
-    },
     useNullAsDefault: true,
+    connection: {
+      host: `${process.env.DB_HOST}`,
+      user: `${process.env.DB_USER}`,
+      port: process.env.DB_PORT,
+      database: `${process.env.DB_NAME}`,
+      password: `${process.env.DB_PASSWORD}`,
+    },
     migrations: {
       directory: './data/migrations',
     },
@@ -52,5 +52,9 @@ module.exports = {
       directory: './data/seeds',
     },
     pool: {},
+    ssl: {
+      sslmode: 'require',
+      rejectUnauthorized: false,
+    },
   },
 };
