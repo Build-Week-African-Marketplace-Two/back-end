@@ -59,7 +59,7 @@ router.post('/login', async (req, res, next) => {
 });
 
 router.get('/logout', async (req, res) => {
-  await res.clearCookie('token').end();
+  res.clearCookie('token').end();
 });
 
 module.exports = router;

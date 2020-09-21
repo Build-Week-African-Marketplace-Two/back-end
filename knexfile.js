@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   development: {
     client: 'sqlite3',
@@ -38,13 +40,7 @@ module.exports = {
   production: {
     client: 'pg',
     useNullAsDefault: true,
-    connection: {
-      host: `${process.env.DB_HOST}`,
-      user: `${process.env.DB_USER}`,
-      port: process.env.DB_PORT,
-      database: `${process.env.DB_NAME}`,
-      password: `${process.env.DB_PASSWORD}`,
-    },
+    connection: `${process.env.DB_URI}`,
     migrations: {
       directory: './data/migrations',
     },
@@ -52,9 +48,9 @@ module.exports = {
       directory: './data/seeds',
     },
     pool: {},
-    ssl: {
-      sslmode: 'require',
-      rejectUnauthorized: false,
-    },
+    // ssl: {
+    //   sslmode: 'require',
+    //   rejectUnauthorized: false,
+    // },
   },
 };
