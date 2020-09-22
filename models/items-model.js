@@ -18,12 +18,13 @@ function findBy(filter) {
 }
 
 function findById(id) {
-  return db('items').select('name').where({ id }).first();
+  return db('items').where({ id }).first();
 }
 
 async function add(item) {
   const [id] = await db('items').insert(item, 'id');
-  return findById(id);
+  return id;
+  // return findById(id);
 }
 
 async function update(id, changes) {
