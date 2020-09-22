@@ -23,7 +23,7 @@ router.get('/:id', async (req, res, next) => {
       });
     }
 
-    res.json(item);
+    res.json(user);
   } catch (err) {
     next(err);
   }
