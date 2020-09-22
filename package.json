@@ -10,6 +10,7 @@
     "test-seed": "cross-env NODE_ENV=testing knex seed:run",
     "test-migrate-latest": "cross-env NODE_ENV=testing knex migrate:latest",
     "production-migrate-latest": "cross-env NODE_ENV=production npx knex migrate:latest",
+    "production-migrate-rollback": "cross-env NODE_ENV=production npx knex migrate:rollback",
     "production-seed": "cross-env NODE_ENV=production knex seed:run"
   },
   "repository": {

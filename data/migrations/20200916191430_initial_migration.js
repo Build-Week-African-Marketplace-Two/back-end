@@ -16,7 +16,7 @@ exports.up = function (knex) {
         items.increments('id');
         items.string('name', 255).notNullable();
         items.string('description', 255);
-        items.float('price').notNullable();
+        items.integer('price').notNullable();
       })
   );
 };
