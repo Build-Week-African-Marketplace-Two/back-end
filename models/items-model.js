@@ -2,6 +2,7 @@ const db = require('../data/config.js');
 
 module.exports = {
   find,
+  findOne,
   findBy,
   findById,
   add,
@@ -11,6 +12,10 @@ module.exports = {
 
 function find() {
   return db('items').select('id', 'name', 'description', 'price');
+}
+
+function findOne() {
+  return find().first();
 }
 
 function findBy(filter) {
