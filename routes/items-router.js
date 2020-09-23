@@ -33,7 +33,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', auth(), async (req, res, next) => {
   try {
-    const id = await db.add(req.body);
+    const id = await db.add(req.body.item);
     const item = await db.findById(id);
 
     return res.status(201).json(item);
@@ -47,7 +47,7 @@ router.post('/', auth(), async (req, res, next) => {
 router.put('/:id', auth(), async (req, res, next) => {
   try {
     const { id } = req.params;
-    const item = await db.update(id, req.body);
+    const item = await db.update(id, req.body.item);
 
     if (item) {
       res.json(item);
