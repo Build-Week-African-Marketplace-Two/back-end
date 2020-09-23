@@ -46,8 +46,9 @@ Requires an object containing the new user
 | Parameters | |
 |--|--|
 | name | _string, required_. must be unique |
-| description | _string_, optional |
+| description | _string, optional_. |
 | price | _integer, required_. |
+| image | _string, optional_. |
 | User must be authenticated |
 
 Returns an object containing information about the new item.
@@ -62,6 +63,7 @@ Requires an object containing the updated item
 | name | _string, required_. must be unique |
 | description | _string_, optional |
 | price | _integer, required_. |
+| image | _string, optional_. |
 | User must be authenticated |
 
 Returns an object containing information about the updated item.
