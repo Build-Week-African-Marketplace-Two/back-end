@@ -32,11 +32,12 @@ router.get('/:id', async (req, res, next) => {
 //Creating a new item
 
 router.post('/', auth(), async (req, res, next) => {
+  const { item } = req.body;
   try {
-    const id = await db.add(req.body.item);
-    const item = await db.findById(id);
+    const id = await db.add(item);
+    const newItem = await db.findById(id);
 
-    return res.status(201).json(item);
+    return res.status(201).json(newItem);
   } catch (err) {
     next(err);
   }
@@ -47,9 +48,10 @@ router.post('/', auth(), async (req, res, next) => {
 router.put('/:id', auth(), async (req, res, next) => {
   try {
     const { id } = req.params;
-    const item = await db.update(id, req.body.item);
+    const { item } = req.body;
+    const itemToUpdate = await db.update(id, item);
 
-    if (item) {
+    if (itemToUpdate) {
       res.json(item);
     } else {
       return res.status(404).json({
