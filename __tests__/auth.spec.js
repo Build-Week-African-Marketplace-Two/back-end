@@ -1,23 +1,6 @@
 const supertest = require('supertest');
 const server = require('../index');
 const db = require('../data/config');
-const itemsModel = require('../models/items-model');
-const usersModel = require('../models/users-model');
-const { expectCt } = require('helmet');
-
-let token;
-
-const login = async () => {
-  await supertest(server).post('/api/auth/register').send({
-    username: 'ben',
-    password: 'password',
-  });
-  const response = await supertest(server).post('/api/auth/login').send({
-    username: 'ben',
-    password: 'password',
-  });
-  token = response.body.token;
-};
 
 beforeEach(async () => {
   await db.migrate.latest();
